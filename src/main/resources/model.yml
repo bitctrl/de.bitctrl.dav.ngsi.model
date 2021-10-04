@@ -1,0 +1,74 @@
+openapi: 3.0.1
+info:
+  title: Traffic Display Model
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1  
+servers:
+- url: https://swagger.io.bitcrl.de/v3
+tags:
+- name: Electronic Sign
+  description: e. g. variable messages signs
+
+- name: Traffic Display
+  description: contains of one or more electronic signs
+
+# These paths are merely representative.
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      responses: 
+        ? "200"
+        : 
+          description:  OK
+          content: 
+            application/ld+json: 
+              schema: 
+                type: object
+components:
+  schemas:
+    SystemObject:
+      type: object
+      required: 
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    TrafficDisplay:
+      allOf:
+        - $ref: '#/components/schemas/SystemObject' 
+        - type: object
+      properties:
+        electronicSings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ElectronicSign'
+    ElectronicSign:
+      allOf:
+        - $ref: '#/components/schemas/SystemObject' 
+        - type: object
+      properties:
+        signContent:
+          type: array
+          items:
+            type: string  
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: http://localhost:9000/oauth2/authorize
+          tokenUrl: http://localhost:9000/oauth2/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants access to admin operations
+security:
+  - OAuth2:
+      - read
+      - write
+    
