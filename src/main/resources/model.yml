@@ -1,74 +1,35 @@
-openapi: 3.0.1
-info:
-  title: Traffic Display Model
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.0.1  
-servers:
-- url: https://swagger.io.bitcrl.de/v3
-tags:
-- name: Electronic Sign
-  description: e. g. variable messages signs
+// Instructions for creating your schema
+// 1.- respect the HEADER
+// 2.- there are 8 types of examples field1 to field8
+// HEADER ***Do not change any of these till next warning***
+$schema =   http://json-schema.org/schema
+$schemaVersion = 0.0.1
+$id = https://smart-data-models.github.io/TrafficManagement/TrafficDisplay/schema.json
+title = Smart Data models -TrafficDisplay schema",
+description = description of traffic displays
+definitions
+  TrafficDisplay
+    type = object
+    required[] = id, type
+    allOf[0]
+      $ref1=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons
+    allOf[1]
+      $ref2=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons
+// HEADER  ***this is the next warning***
+// you can start configuring this 
+    allOf[2]
+      properties
+        electronicSings
+          type = array
+          items
+            $ref = #/definitions/ElectronicSign
 
-- name: Traffic Display
-  description: contains of one or more electronic signs
-
-# These paths are merely representative.
-paths: 
-  /ngsi-ld/v1/entities: 
-    get: 
-      responses: 
-        ? "200"
-        : 
-          description:  OK
-          content: 
-            application/ld+json: 
-              schema: 
-                type: object
-components:
-  schemas:
-    SystemObject:
-      type: object
-      required: 
-        - id
-        - name
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    TrafficDisplay:
-      allOf:
-        - $ref: '#/components/schemas/SystemObject' 
-        - type: object
-      properties:
-        electronicSings:
-          type: array
-          items:
-            $ref: '#/components/schemas/ElectronicSign'
-    ElectronicSign:
-      allOf:
-        - $ref: '#/components/schemas/SystemObject' 
-        - type: object
-      properties:
-        signContent:
-          type: array
-          items:
-            type: string  
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: http://localhost:9000/oauth2/authorize
-          tokenUrl: http://localhost:9000/oauth2/token
-          scopes:
-            read: Grants read access
-            write: Grants write access
-            admin: Grants access to admin operations
-security:
-  - OAuth2:
-      - read
-      - write
-    
+  ElectronicSign
+    type = object
+    required[] = id, type
+    allOf[0]
+      $ref1=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons
+    allOf[1]
+      properties
+  
+  
