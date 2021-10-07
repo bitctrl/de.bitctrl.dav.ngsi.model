@@ -15,10 +15,11 @@ allOf[2]
       type = string
     status
       type = string
-      enum[] s = deleted, unknown, ready, inPreparation, waiting, active
+      enum[] string = deleted, unknown, ready, inPreparation, waiting, active
     lastErrorMessage
       tpye = string
     executionResultCode
       type = string
-      enum[] s = working, prepared, ok, error, timeout, canceled
+      enum[] string = working, prepared, ok, error, timeout, canceled
+  required[] string = id, type
   
