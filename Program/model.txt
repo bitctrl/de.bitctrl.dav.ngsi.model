@@ -1,0 +1,24 @@
+$schema =   http://json-schema.org/schema
+$schemaVersion = 0.0.1
+$id = https://smart-data-models.github.io/TrafficManagement/Program/schema.json
+title = Smart Data models -Program schema",
+description = description of a program variable message signs
+type = object
+required[] = id, type
+allOf[0]
+  $ref1=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons
+allOf[1]
+  $ref2=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons
+allOf[2]
+  properties
+    pid
+      type = string
+    status
+      type = string
+      enum[] s = deleted, unknown, ready, inPreparation, waiting, active
+    lastErrorMessage
+      tpye = string
+    executionResultCode
+      type = string
+      enum[] s = working, prepared, ok, error, timeout, canceled
+  
