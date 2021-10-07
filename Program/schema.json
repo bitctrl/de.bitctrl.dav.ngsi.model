@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/TrafficManagement/Program/schema.json",
+  "title": "Smart Data models -Program schema\",",
+  "description": "description of a program variable message signs",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref1": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref2": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "pid": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "deleted",
+            "unknown",
+            "ready",
+            "inPreparation",
+            "waiting",
+            "active"
+          ]
+        },
+        "lastErrorMessage": {
+          "tpye": "string"
+        },
+        "executionResultCode": {
+          "type": "string",
+          "enum": [
+            "working",
+            "prepared",
+            "ok",
+            "error",
+            "timeout",
+            "canceled"
+          ]
+        }
+      },
+      "": {}
+    }
+  ]
+}
