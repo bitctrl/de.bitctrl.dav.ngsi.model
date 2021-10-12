@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/TrafficManagement/ProgramRequest/schema.json",
+  "title": "Smart Data models -ProgramRequest schema\",",
+  "description": "description of a request for a program",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref1": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "refProgram": {
+          "type": "string"
+        },
+        "initiator": {
+          "type": "string",
+          "": {}
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "": {}
+    }
+  ]
+}

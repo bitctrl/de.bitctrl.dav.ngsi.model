@@ -1,0 +1,18 @@
+$schema =   http://json-schema.org/schema
+$schemaVersion = 0.0.1
+$id = https://smart-data-models.github.io/TrafficManagement/ProgramRequest/schema.json
+title = Smart Data models -ProgramRequest schema",
+description = description of a request for a program
+type = object
+required[] = id, type
+allOf[0]
+  $ref1=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons
+allOf[1]
+  properties
+    refProgram
+      type = string
+    initiator
+      type = string
+      
+  required[] string = id, type
+  
