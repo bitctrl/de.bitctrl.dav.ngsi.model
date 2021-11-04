@@ -17,7 +17,7 @@ allOf[2]
       type = string
       enum[] string = deleted, unknown, ready, inPreparation, waiting, active
     lastErrorMessage
-      tpye = string
+      type = string
     executionResultCode
       type = string
       enum[] string = working, prepared, ok, error, timeout, canceled

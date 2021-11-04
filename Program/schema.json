@@ -33,7 +33,7 @@
           ]
         },
         "lastErrorMessage": {
-          "tpye": "string"
+          "type": "string"
         },
         "executionResultCode": {
           "type": "string",
