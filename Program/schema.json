@@ -7,7 +7,8 @@
   "type": "object",
   "required": [
     "id",
-    "type"
+    "type",
+    "status"
   ],
   "allOf": [
     {
@@ -18,9 +19,6 @@
     },
     {
       "properties": {
-        "pid": {
-          "type": "string"
-        },
         "status": {
           "type": "string",
           "enum": [

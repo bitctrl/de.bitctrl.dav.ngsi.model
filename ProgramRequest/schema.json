@@ -7,7 +7,9 @@
   "type": "object",
   "required": [
     "id",
-    "type"
+    "type",
+    "refProgram",
+    "status"
   ],
   "allOf": [
     {
@@ -19,7 +21,16 @@
           "type": "string"
         },
         "initiator": {
+          "type": "string"
+        },
+        "status": {
           "type": "string",
+          "enum": [
+            "new",
+            "waiting",
+            "executed",
+            "rejected"
+          ],
           "": {}
         }
       },

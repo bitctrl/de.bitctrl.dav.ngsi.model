@@ -4,15 +4,13 @@ $id = https://smart-data-models.github.io/TrafficManagement/Program/schema.json
 title = Smart Data models -Program schema",
 description = description of a program variable message signs
 type = object
-required[] = id, type
+required[] = id, type, status
 allOf[0]
   $ref1=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons
 allOf[1]
   $ref2=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons
 allOf[2]
   properties
-    pid
-      type = string
     status
       type = string
       enum[] string = deleted, unknown, ready, inPreparation, waiting, active

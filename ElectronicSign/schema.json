@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/TrafficManagement/ElectronicSign/schema.json",
+  "title": "Smart Data models -ElectronicSign schema\",",
+  "description": "description of a electronic sign",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "status"
+  ],
+  "allOf": [
+    {
+      "$ref1": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref2": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "undefined",
+            "ok",
+            "defective",
+            "Partial fault",
+            "Power outage",
+            "Communication failure",
+            "Door contact"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "description": "The display content described as text."
+        },
+        "image": {
+          "type": "string",
+          "description": "The display content as Base64 encoded image"
+        },
+        "timestamp": {
+          "format": "date-time"
+        },
+        "resolution": {
+          "description": "Only the first two numbers are used.",
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minitems": 2
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "": {}
+    }
+  ]
+}

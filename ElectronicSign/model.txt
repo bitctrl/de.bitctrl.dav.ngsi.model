@@ -1,0 +1,32 @@
+$schema =   http://json-schema.org/schema
+$schemaVersion = 0.0.1
+$id = https://smart-data-models.github.io/TrafficManagement/ElectronicSign/schema.json
+title = Smart Data models -ElectronicSign schema",
+description = description of a electronic sign
+type = object
+required[] = id, type, status
+allOf[0]
+  $ref1=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons
+allOf[1]
+  $ref2=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons
+allOf[2]
+  properties
+    status
+      type = string
+      enum[] string = undefined, ok, defective ,Partial fault, Power outage, Communication failure, Door contact
+    message
+      type = string
+      description = The display content described as text.
+    image
+      type = string
+      description = The display content as Base64 encoded image
+    timestamp
+      format = date-time
+    resolution
+      description = Only the first two numbers are used.
+      type = array
+      items
+        type = number
+        minitems number = 2
+  required[] string = id, type
+  

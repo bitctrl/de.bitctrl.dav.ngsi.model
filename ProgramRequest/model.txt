@@ -4,7 +4,7 @@ $id = https://smart-data-models.github.io/TrafficManagement/ProgramRequest/schem
 title = Smart Data models -ProgramRequest schema",
 description = description of a request for a program
 type = object
-required[] = id, type
+required[] = id, type, refProgram, status
 allOf[0]
   $ref1=https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons
 allOf[1]
@@ -13,6 +13,9 @@ allOf[1]
       type = string
     initiator
       type = string
+    status
+      type = string
+      enum[] string = new, waiting, executed, rejected
       
   required[] string = id, type
   
