@@ -26,15 +26,7 @@
             "ACTIVE"
           ]
         },
-        "name": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. The name of the program - the pid is encoded into the id."
-        },
-        "comment": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. A comment to the program."
-        },
-        "programGroup": {
+       "programGroup": {
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. The name of program group this program belongs to."
         }
@@ -44,7 +36,6 @@
   "required": [
     "id",
     "type",
-    "name",
     "status"
   ]
 }
