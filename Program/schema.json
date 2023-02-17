@@ -1,15 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/TrafficManagement/Program/schema.json",
-  "title": "Smart Data models -Program schema\",",
-  "description": "description of a program variable message signs",
+  "$schemaVersion": "0.0.2",
+  "$id": "https://smart-data-models.github.io/dataModel.Traffic/Program/schema.json",
+  "title": "Smart Data models Program schema",
+  "description": "This is the data model for representing description of a Traffic Sign Program",
   "type": "object",
-  "required": [
-    "id",
-    "type",
-    "status"
-  ],
   "allOf": [
     {
       "$ref1": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -21,35 +16,35 @@
       "properties": {
         "status": {
           "type": "string",
+          "description": "Property. The status program",
           "enum": [
-            "deleted",
-            "unknown",
-            "ready",
-            "inPreparation",
-            "waiting",
-            "active"
+            "DELETED",
+            "UNKNOWN",
+            "READY",
+            "INPREPERATION",
+            "WAITING",
+            "ACTIVE"
           ]
         },
-        "lastErrorMessage": {
-          "type": "string"
-        },
-        "executionResultCode": {
+        "name": {
           "type": "string",
-          "enum": [
-            "working",
-            "prepared",
-            "ok",
-            "error",
-            "timeout",
-            "canceled"
-          ]
+          "description": "Property. Model:'https://schema.org/Text'. The name of the program - the pid is encoded into the id."
+        },
+        "comment": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. A comment to the program."
+        },
+        "programGroup": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The name of program group this program belongs to."
         }
-      },
-      "required": [
-        "id",
-        "type"
-      ],
-      "": {}
+      }
     }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "status"
   ]
 }
